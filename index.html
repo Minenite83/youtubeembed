@@ -55,26 +55,30 @@
         const str = inp.value;
         if(str !== ""){
           let id = "";
+          let m = [];
           switch(true){
             case Boolean(str.match(/youtube/)):
-              const match = str.match(/v=([\w-]{11})/);
-              if(match){
-                id = match[1];
+              m = str.match(/v=([\w-]{11})/);
+              if(m){
+                id = m[1];
               }
               break;
             case Boolean(str.match(/youtu.be/)):
-              const match = str.match(/([\w-]{11})/);
-              if(match){
-                id = match[1];
+              m = str.match(/[\w-]{11}/);
+              if(m){
+                id = m[0];
               }
               break;
             default:
-              const match = str.match(/[\w-]{11}/);
-              if(match){
-                id = match[1];
+              m = str.match(/[\w-]{11}/);
+              if(m){
+                id = m[0];
               }
               break;
           }
+          console.clear();
+          console.log(m);
+          console.log(id);
           if(id === ""){
             alt.style.visibility="visible";
             return;
@@ -92,6 +96,6 @@
         }
       });
     </script>
-    <div style="position:fixed;top:0px;left:0px;color:white;">hello</div>
+    <div style="position:fixed;top:0px;left:0px;color:white;">2</div>
   </body>
 </html>
